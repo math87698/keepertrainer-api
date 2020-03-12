@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     #apps
     'accounts',
+    'keeperstats',
+    'keeperadmin',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +125,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Pagination and Authentication from Rest Framework.
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

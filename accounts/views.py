@@ -9,16 +9,6 @@ from accounts.models import User
 from accounts.serializers import UserSerializer
 
 
-@api_view(['GET'])
-@authentication_classes([SessionAuthentication, BasicAuthentication])
-@permission_classes(IsAdminUser)
-def api_root(request, format=None):
-    content = {
-        'user': unicode(request.user),
-        'auth': unicode(request.auth),
-    }
-    return Response(content)
-
 class UserViewSet(viewsets.ModelViewSet):
     """ API Endpoint that allows users to be viewed or edited. """
     queryset = User.objects.all().order_by('-date_joined')

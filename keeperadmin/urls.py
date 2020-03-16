@@ -7,6 +7,7 @@ from keeperadmin import views
 router = DefaultRouter()
 router.register(r'groups', views.GroupViewSet)
 router.register(r'keepers', views.KeeperViewSet)
+router.register(r'gamestats', views.GameStatsViewSet)
 
 # The API URLs are now determined automatically by the router
 urlpatterns = [

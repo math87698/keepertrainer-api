@@ -41,7 +41,6 @@ INSTALLED_APPS = [
 
     #apps
     'accounts',
-    'keeperstats',
     'keeperadmin',
 ]
 

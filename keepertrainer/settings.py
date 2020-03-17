@@ -25,7 +25,7 @@ SECRET_KEY = 'r-7_)5b6f@nqe)n+e1+91svpk8$d&/ieoOT8R4%cEd*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1:8000','localhost','.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','127.0.0.1:8000','localhost','.herokuapp.com']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
 
     #apps
     'accounts',
@@ -128,7 +129,11 @@ USE_TZ = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
 }
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

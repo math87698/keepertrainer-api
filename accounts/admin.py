@@ -1,9 +1,11 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
+from rest_framework.authtoken.admin import TokenAdmin
 
 from .models import User
 
+TokenAdmin.raw_id_fields = ['user']
 
 @admin.register(User)
 class UserAdmin(DjangoUserAdmin):
